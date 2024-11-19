@@ -14,7 +14,7 @@ public class SistemaRecomendacao {
     }
 
     public List<Produto> gerarRecomendacoes(Usuario usuario, int numeroRecomendacoes) {
-        // Obter histórico do usuário
+        
         List<Historico> historicoUsuario = getHistoricoUsuario(usuario);
 
         if (historicoUsuario.isEmpty()) {
@@ -31,7 +31,7 @@ public class SistemaRecomendacao {
     }
 
     private List<Produto> gerarRecomendacoesSemHistorico(int numeroRecomendacoes) {
-        // 1. Produtos mais populares
+       
         Map<Produto, Integer> frequenciaCompras = new HashMap<>();
 
         for (Historico historico : todosHistoricos) {
@@ -48,10 +48,10 @@ public class SistemaRecomendacao {
     }
 
     private List<Produto> gerarRecomendacoesComHistorico(List<Historico> historicoUsuario, int numeroRecomendacoes) {
-        // 1. Análise de frequência de compra
+       
         Map<Produto, Double> scoresProdutos = new HashMap<>();
 
-        // 2. Calcular scores baseados em recência e frequência
+       
         for (Historico historico : historicoUsuario) {
             double pesoRecencia = calcularPesoRecencia(historico.getDataCompra());
 
@@ -60,7 +60,7 @@ public class SistemaRecomendacao {
             }
         }
 
-        // 3. Encontrar produtos similares aos que o usuário já comprou
+      
         Set<Produto> produtosRecomendados = new HashSet<>();
 
         for (Produto produtoComprado : scoresProdutos.keySet()) {
@@ -68,7 +68,6 @@ public class SistemaRecomendacao {
             produtosRecomendados.addAll(similares);
         }
 
-        // 4. Ordenar e retornar as recomendações
         return produtosRecomendados.stream()
                 .sorted((p1, p2) -> scoresProdutos.getOrDefault(p2, 1.0)
                         .compareTo(scoresProdutos.getOrDefault(p1, 2.0)))
@@ -78,11 +77,10 @@ public class SistemaRecomendacao {
 
     private double calcularPesoRecencia(LocalDateTime dataCompra) {
         long diasAtras = ChronoUnit.DAYS.between(dataCompra, LocalDateTime.now());
-        return Math.exp(-diasAtras / 30.0); // Peso diminui exponencialmente com o tempo
+        return Math.exp(-diasAtras / 30.0);
     }
 
     private List<Produto> encontrarProdutosSimilares(Produto produto) {
-        // Implementação básica - produtos na mesma faixa de preço
         double precoMin = produto.getPreco() * 0.5;
         double precoMax = produto.getPreco() * 3.0;
 
