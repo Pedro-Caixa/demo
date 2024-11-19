@@ -33,7 +33,7 @@ public class recomendacaoProdutos {
 
         String url = "jdbc:mysql://127.0.0.1:3306/sistemarecomendacao";
         String user = "root";
-        String password = "senha123";
+        String password = "senha123"; // Armazenando o usuario e a senha correta
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "SELECT nome, preco, quantidade FROM Produto";
@@ -158,11 +158,11 @@ public class recomendacaoProdutos {
         historicoButton.addActionListener(e -> criarTelaHistorico());
         bottomPanel.add(historicoButton);
 
-        JButton addButton = new JButton("Adicionar Produto");
+        JButton addButton = new JButton("Adicionar Produto"); // Criação do botão de adicionar produtos
         addButton.addActionListener(e -> criarTelaAdicionarProduto(painelProdutos2));  // Passa o painel de produtos para atualizar
         bottomPanel.add(addButton);
 
-        JButton removeButton = new JButton("Remover Produto");
+        JButton removeButton = new JButton("Remover Produto"); // Criação do botão de remover produtos
         removeButton.addActionListener(e -> criarTelaRemoverProduto(painelProdutos2));  // Passa o painel de produtos para atualizar
         bottomPanel.add(removeButton);
 
