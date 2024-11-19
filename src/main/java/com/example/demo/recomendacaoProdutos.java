@@ -29,11 +29,11 @@ public class recomendacaoProdutos {
     }
 
     public static void atualizarPainelProdutos(JPanel painelProdutos2) {
-        painelProdutos2.removeAll();  // Remove todos os produtos atuais
+        painelProdutos2.removeAll();
 
         String url = "jdbc:mysql://127.0.0.1:3306/sistemarecomendacao";
         String user = "root";
-        String password = "senha123"; // Armazenando o usuario e a senha correta
+        String password = "senha123";
 
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             String sql = "SELECT nome, preco, quantidade FROM Produto";
