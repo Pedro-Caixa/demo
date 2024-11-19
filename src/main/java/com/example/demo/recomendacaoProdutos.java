@@ -84,24 +84,24 @@ public class recomendacaoProdutos {
 
     public static void criarTelaLogin() {
         JFrame frameLogin = new JFrame("Login");
-        frameLogin.setExtendedState(JFrame.MAXIMIZED_BOTH); // fullscreen
+        frameLogin.setExtendedState(JFrame.MAXIMIZED_BOTH); // Tela cheia
         frameLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel painelCentral = new JPanel();
         painelCentral.setLayout(new GridLayout(3, 2, 10, 10));
-        painelCentral.setPreferredSize(new Dimension(300, 150)); // mantém o tamanho do painel
+        painelCentral.setPreferredSize(new Dimension(300, 150)); // Tamanho Painel 
 
         JLabel labelUsuario = new JLabel("Usuário:");
         labelUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 
         JTextField campoUsuario = new JTextField();
-        campoUsuario.setPreferredSize(new Dimension(150, 25)); // ajusta o tamanho do campo
+        campoUsuario.setPreferredSize(new Dimension(150, 25)); // Ajuste de campo
 
         JLabel labelSenha = new JLabel("Senha:");
         labelSenha.setHorizontalAlignment(SwingConstants.CENTER);
 
         JPasswordField campoSenha = new JPasswordField();
-        campoSenha.setPreferredSize(new Dimension(150, 25)); // ajusta o tamanho do campo
+        campoSenha.setPreferredSize(new Dimension(150, 25)); // ajusta de campo
 
         JButton botaoLogin = new JButton("Login");
         JLabel mensagem = new JLabel("", SwingConstants.CENTER);
