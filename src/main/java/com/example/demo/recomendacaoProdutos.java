@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class recomendacaoProdutos {
 
-    // Classe para representar um produto comprado
     static class ProdutoComprado {
         String nome;
         String descricao;
